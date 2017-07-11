@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="user_id">(input user id)</string>
+    <string name="input_password">(input password)</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_end_app">アプリを閉じる</string>
+
+    <string name="dialog_fire_missiles">発射しますか？</string>
+    <string name="fire">行くぜ！</string>
+    <string name="cancel">キャンセル</string>
+
+    <string name="title_activity_sub01">Sub01 Activity</string>
+    <string name="title_activity_sub02">Sub02 Activity</string>
+
+
+
+    <string name="W0001">正しいユーザーIDとパスワードを入力してください。</string>
+</resources>

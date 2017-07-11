@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
+
+android {
+//    compileSdkVersion 21 // IMS use this
+    compileSdkVersion 23
+//    buildToolsVersion "21.1.2" // IMS use this
+//    buildToolsVersion "23.0.3" // coverage ok
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.example.a_shinbori.myapplication"
+        minSdkVersion 21
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+
+        // added for use espresso
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled true
+        }
+    }
+
+    // added for use espresso
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+
+    jacoco {
+        version = "0.7.6.201602180812"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    // for AndroidTest
+//    compile 'com.android.support:appcompat-v7:22.2.0'   // uses this on other IMS Apps. uses this version because there is any reason, but that is not clear. (2017/06/12)
+//    androidTestCompile 'com.android.support:support-annotations:22.2.0'         // ok pattern 001
+//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.1'    // ok pattern 001
+//    androidTestCompile 'com.android.support.test:runner:0.2'                    // ok pattern 001
+//    androidTestCompile 'com.android.support.test:rules:0.2'                     // ok pattern 001
+
+//    androidTestCompile 'com.android.support:support-annotations:23.0.1'         // NG. version error occurred at sync with appcompat-v7:22.2.0.
+//    androidTestCompile 'com.android.support.test:runner:0.3'                    // NG. compile error occurred with appcompat-v7:22.2.0.
+//    androidTestCompile 'com.android.support.test:rules:0.3'                     // NG. compile error occurred with appcompat-v7:22.2.0.
+//    androidTestCompile 'com.android.support:support-annotations:23.1.1'         // NG. version error occurred at sync with appcompat-v7:22.2.0.
+//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'  // NG. version error occurred at sync with appcompat-v7:22.2.0.
+//    androidTestCompile 'com.android.support.test:runner:0.5'                    // NG. version error occurred at sync with appcompat-v7:22.2.0.
+//    androidTestCompile 'com.android.support.test:rules:0.5'                     // NG. version error occurred at sync with appcompat-v7:22.2.0.
+
+    // non problem settings latest version. (2017/06/12) coverage ok
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    testCompile 'junit:junit:4.12'
+//    // for AndroidTest
+//    androidTestCompile 'com.android.support:support-annotations:23.1.1'
+//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+//    androidTestCompile 'com.android.support.test:runner:0.5'
+//    androidTestCompile 'com.android.support.test:rules:0.5'
+
+// coverage test NG
+//    compile 'com.android.support:appcompat-v7:22.2.0'
+//    androidTestCompile 'com.android.support:support-annotations:22.2.0'
+//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
+//    androidTestCompile 'com.android.support.test:runner:0.3'
+//    androidTestCompile 'com.android.support.test:rules:0.3'
+
+//    // coverage OK with buildToolsVersion "23.0.3"
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    testCompile 'junit:junit:4.12'
+//    // for AndroidTest
+//    androidTestCompile 'com.android.support:support-annotations:23.1.1'
+//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+//    androidTestCompile 'com.android.support.test:runner:0.4'
+//    androidTestCompile 'com.android.support.test:rules:0.4'
+
+//    // coverage NG with buildToolsVersion "23.0.3"
+//    compile 'com.android.support:appcompat-v7:22.2.0'
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    testCompile 'junit:junit:4.12'
+//    // for AndroidTest
+//    androidTestCompile 'com.android.support:support-annotations:22.2.0'
+//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
+//    androidTestCompile 'com.android.support.test:runner:0.3'
+//    androidTestCompile 'com.android.support.test:rules:0.3'
+
+//    // coverage OK with buildToolsVersion "22.0.1"
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    testCompile 'junit:junit:4.12'
+//    // for AndroidTest
+//    androidTestCompile 'com.android.support:support-annotations:23.1.1'
+//    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+//    androidTestCompile 'com.android.support.test:runner:0.4'
+//    androidTestCompile 'com.android.support.test:rules:0.4'
+
+    // coverage OK with buildToolsVersion "22.0.1", SDK version 23
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    testCompile 'junit:junit:4.12'
+    // for AndroidTest
+    androidTestCompile 'com.android.support:support-annotations:23.1.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+    androidTestCompile 'com.android.support.test:runner:0.4'
+    androidTestCompile 'com.android.support.test:rules:0.4'
+
+}
+
